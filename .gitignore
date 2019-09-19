@@ -1,0 +1,5 @@
+.vscode
+**/.settings/*
+.classpath
+.project
+**/target/

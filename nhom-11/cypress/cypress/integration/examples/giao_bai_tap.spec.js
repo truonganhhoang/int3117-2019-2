@@ -1,6 +1,6 @@
 context('Kiểm thử chức năng giao bài tập', () => {
     beforeEach(() => { // Đăng nhập trước mỗi ca kiểm thử
-        cy.visit('https://hoclieu.vn')
+        cy.visit('https://hoclieu.sachmem.vn')
         cy.contains('Đăng nhập').parent().click()
         cy.get('#user_email').type('giaovien1@sachmem.vn')
         cy.get('#user_password').type('giaovien1@123')

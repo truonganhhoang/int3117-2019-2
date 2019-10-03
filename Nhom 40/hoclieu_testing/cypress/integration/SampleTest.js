@@ -1,7 +1,16 @@
-describe('My First Test', function() {
-    it('clicking "type" navigates to a new url', function() {
-      cy.visit('https://example.cypress.io/commands/querying')
-  
-      cy.get('.btn-primary').should('contain', 'Button')
+describe('Get class code', () => {
+    beforeEach(() => {
+      cy.login()
     })
-  })
+    // login to class manage screen
+    it('open classes manager screen', () => {
+        cy.url().should('include', '/live_class/classes')
+    })
+
+    it('open class manager screen', () => {
+      // Click class
+      cy.get('.pl-1').click()
+      cy.url().should('include', '/live_class/class')
+    })
+}) 
+   

@@ -23,7 +23,7 @@ describe('Get class code', () => {
   })
   // Open classes
   it('Click class 1', () =>{
-    cy.contains('type').click()
+    cy.contains('Lop 1').click()
     // Should be on a new URL which includes '/class/5d90214c2d66d550626de90d/assignments'
     cy.url().should('include', '/class/5d90214c2d66d550626de90d/assignments')
   })
@@ -54,6 +54,17 @@ describe('Get class code', () => {
     // Click close
     cy.get('.btn-secondary').click()
     cy.get('div#codeFolderModal').should('invisible')
+  })
+  // switch-id
+
+  it('Check activity', () => {
+    // Click dropDown to show hidden menu
+    cy.get('a#optionDropdown').first().click()
+    // Click first dropDown Item (Mã tham gia lớp học)
+    cy.get('a[data-target="#codeFolderModal"]').first().click()
+    // Click switch activity
+    cy.get('.switch-id').click()
+    cy.get('div#toast-container').should('invisible')
   })
 
 })

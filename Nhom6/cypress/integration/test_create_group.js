@@ -40,7 +40,8 @@ describe("Test create group", () => {
       "#createGroup > div > div > form > div.modal-footer > input"
     ).click();
 
-    cy.get('#createGroup div.form-group div.error-text:contains("Trường này không được để trống")').should("be.visible")
+    cy.get('#createGroup div.form-group div.error-text:contains("Trường này không được để trống")')
+      .should("be.visible")
   });
 
 
@@ -101,7 +102,9 @@ describe("Test create group", () => {
 
     cy.get("#toast-container").should("contain.text", "Nhóm đã trùng tên");
 
-    cy.get('#createGroup > div > div > form > div.modal-footer > button:contains("Đóng")').click();
+    cy.get(
+      '#createGroup > div > div > form > div.modal-footer > button:contains("Đóng")'
+    ).click();
 
     cy.get("#createGroup").should("be.hidden");
   });

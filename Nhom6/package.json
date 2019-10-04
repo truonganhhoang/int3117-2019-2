@@ -4,7 +4,7 @@
   "description": "Practise Cypress Testing",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/.bin/cypress run --spec 'cypress/integration/test_create_group.js'",
     "start": "./node_modules/.bin/cypress open",
     "cypress:open": "cypress open",
     "cy:run": "cypress run"

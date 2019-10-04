@@ -45,7 +45,7 @@ describe('Tạo bộ câu hỏi', function () {
           .get(".cke_wysiwyg_frame").should(function ($iframe) {
             const body = $iframe.contents().find("body").get(0)
             expect(body).to.be.ok
-            cy.wrap(body).type(question.generalContent);
+            cy.wrap(body).type(question.mainContent);
           })
       })
     })

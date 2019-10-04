@@ -32,8 +32,8 @@ describe('Kiem tra dang nhap', function() {
 
     it('Test case đăng nhập thành công', function(){
       cy.contains('Đăng nhập').click();
-      cy.get('#user_email').type('giaovienha@gmail.com'); // type email
-      cy.get('#user_password').type('password123'); // type password
+      cy.get('#user_email').type('giaovien1@sachmem.vn'); // type email
+      cy.get('#user_password').type('giaovien1@123'); // type password
       cy.get('#new_user > div:nth-child(6) > input').click();
 
       cy.url().should('include', 'https://hoclieu.sachmem.vn');

@@ -7,6 +7,9 @@
 
 ## Chức năng: Tham gia làm bài tập trên hoclieu.vn.
 ## Chú ý:
+
+  - Install Cypress: npm install cypress --save-dev
+
   - Để chạy được cần cho file test.spec.js vào trong thu mục cypress\integration\examples
   
   - Để Cypress chạy được với https, cần sửa file cypress.json như sau:
@@ -14,3 +17,7 @@
   
   - Nếu chạy bị lỗi exception thì thêm vào file cypress/support/index.js dòng sau:
    Cypress.on('uncaught:exception', (err, runnable) => { return false })
+  
+  - Chạy lệnh sau trên cửa sổ cmd: cypress run  cypress/integration/test.spec.js
+
+  - Xem kết quả hiển thị trên cửa sổ cmd

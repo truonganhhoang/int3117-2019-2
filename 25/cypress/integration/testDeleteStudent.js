@@ -14,6 +14,7 @@ describe("Test delete student", function () {
 	cy.get("body").then($body => {
         if ($body.find('[data-target="#activeStudent"]').length > 0) { 
 		cy.get('[data-target="#activeStudent"]').each(($el, index, $list) => {
+			cy.wait(500)
 			cy.wrap($el).click()
 			cy.wait(500)
 			cy.get('[class="btn btn-primary bootbox-accept"]').click()
@@ -46,16 +47,18 @@ describe("Test delete student", function () {
 	cy.wait(500)
 	cy.get('[class="bootbox-close-button close"]').click()
     });
-
     it("delete all student", () => {
         cy.visit("https://hoclieu.sachmem.vn/live_class/class/5cfdf60a81522b4e06d1f9fc/students");
 	cy.wait(500)
-	cy.get('[data-target="#deleteStudent"]')
-	.each(($el, index, $list) => {
-		cy.wrap($el).click()
-		cy.wait(500)
-		cy.get('[class="btn btn-primary bootbox-accept"]').click()
-		cy.wait(500)
-	})
+	var studentNum
+	cy.get("body").then($body => {
+		studentNum = $body.find('[data-target="#deleteStudent"]').length
+		for (var i = 0 ; i <studentNum; i++){
+			cy.get('[data-target="#deleteStudent"]').eq(0).click()
+			cy.wait(500)
+			cy.get('[class="btn btn-primary bootbox-accept"]').click()
+			cy.wait(500)
+		}
+	});
     });
 }); 

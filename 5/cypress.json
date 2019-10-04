@@ -1,0 +1,8 @@
+{
+  "chromeWebSecurity": false,
+  "modifyObstructiveCode": false,
+  "baseUrl": "https://hoclieu.sachmem.vn",
+  "user_email": "giaovien1@sachmem.vn",
+  "user_password": "giaovien1@123",
+  "projectId": "4duwuc"
+}

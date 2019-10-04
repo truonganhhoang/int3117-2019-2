@@ -30,6 +30,7 @@ describe("Invite students to class", function () {
             "have.contain",
             "Trường này không được để trống"
         );
+        cy.contains('Đóng').click();
     });
 
     it("invalid email", () => {
@@ -43,6 +44,7 @@ describe("Invite students to class", function () {
             .first()
             .click();
         cy.get("p").should("have.contain", "Email không tồn tại");
+        cy.contains('Đóng').click();
     });
 
     it("valid email one line", () => {

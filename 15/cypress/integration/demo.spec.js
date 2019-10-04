@@ -1,19 +1,22 @@
-describe('Login', () => {
+describe('Thêm sinh viên vào nhóm', () => {
     beforeEach(() => {
-        cy.fixture("users/teacher").as("admin");
+        cy.login();
     })
 
-    it("Should login successfully", function() {
-        cy.visit("https://hoclieu.sachmem.vn");
+    it("Thêm sinh viên vào nhóm", function() {
+        cy.visit('https://hoclieu.sachmem.vn/live_class/class/5d96f5e6ec4e443482b3c207/list_groups')
 
-        cy.get("#link-login.nav-link").click();
+        // cy.get("li:nth-child(1) > div.w-100 > div.mt-1 > a").click();
 
-        cy.get("#user_email.form-control").type(this.admin.email);
-        cy.get("#user_password.form-control").type(this.admin.password).type("{enter}");
+        // cy.get("i.fa.fa-group").click(); 
+        cy.get("table.table.table-border > tbody > tr > td:nth-child(3) > i.fa.fa-edit.pl-3.text-blue-custom").click();
 
-        // cy.get(".text-dark").contains("Lớp học của tôi").click();
-        cy.get("li:nth-child(1) > div.w-100 > div.mt-1 > a").click();
+        cy.contains("Chọn học sinh").parent().click();
 
-        cy.get("i.fa.fa-group").click(); 
+        cy.get(".ng-option").not(".ng-option-selected").first().click();
+
+        cy.contains("Lưu").click();
+
+        cy.get('div#toast-container').should('exist')
     })
 })

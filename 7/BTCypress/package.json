@@ -1,0 +1,12 @@
+{
+  "name": "BTCypress",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^3.4.1"
+  },
+  "scripts": {
+    "start": "node_modules/.bin/cypress open"
+  }
+}

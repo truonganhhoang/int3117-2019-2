@@ -12,14 +12,11 @@
 
   - Để chạy được cần cho file test.spec.js vào trong thu mục cypress\integration\examples
   
-  - Để mở file, chạy lệnh npx cypress open
-  
-  - Chọn file test.spec.js từ danh sách chọn
-  
-  - Xem kết quả trên màn hình trình duyệt
-  
   - Để Cypress chạy được với https, cần sửa file cypress.json như sau:
   { "chromeWebSecurity": false }
   
   - Nếu chạy bị lỗi exception thì thêm vào file cypress/support/index.js dòng sau:
    Cypress.on('uncaught:exception', (err, runnable) => { return false })
+  - Vào cmd chuyển đến thư mục gốc cài cypress
+  - Gõ lệnh npx cypress open,màn hình cypress hiện ra 
+  - Chọn file test.spec.js xem kết quả các ca test.

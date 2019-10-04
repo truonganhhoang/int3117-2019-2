@@ -2,9 +2,5 @@
   "projectId": "128076ed-9868-4e98-9cef-98dd8b705d75",
   "chromeWebSecurity": false,
   "modifyObstructiveCode": false,
-  "baseUrl": "https://hoclieu.sachmem.vn/",
-  "env": {
-    "email": "giaovien1@sachmem.vn",
-    "password": "giaovien1@123"
-  }
+  "baseUrl": "https://hoclieu.sachmem.vn/"
 }

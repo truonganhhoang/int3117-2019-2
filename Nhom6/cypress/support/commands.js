@@ -24,7 +24,7 @@
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
-Cypress.Commands.add("login", () => {
+Cypress.Commands.add("login", (email, password) => {
   cy.visit("/");
 
   cy.get("#link-login").click();
@@ -32,12 +32,12 @@ Cypress.Commands.add("login", () => {
   cy.url().should("eq", "https://accounts.sachmem.vn/users/sign_in");
 
   cy.get("#user_email")
-    .type(Cypress.env("email"))
-    .should("have.value", Cypress.env("email"));
+    .type(email)
+    .should("have.value", email);
 
   cy.get("#user_password")
-    .type(Cypress.env("password"))
-    .should("have.value", Cypress.env("password"));
+    .type(password)
+    .should("have.value", password);
 
   cy.get("#new_user").submit();
 
@@ -53,7 +53,7 @@ Cypress.Commands.add("deleteGroups", function () {
     timeout: 10000
   });
 
-  cy.wait(3000)
+  cy.wait(1000)
 
   cy.get("app-list-group").then($group => {
     if ($group.find("table").length) {

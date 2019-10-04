@@ -1,12 +1,14 @@
 describe("Test create group", () => {
   beforeEach(() => {
-    cy.login();
+    cy.fixture("teacher.json").then( teacher => {
+      cy.login(teacher.email, teacher.password);
+    });
 
     cy.deleteGroups();
 
     cy.get('div.action:contains("Danh sách người học")').click({});
 
-    cy.wait(3000);
+    cy.wait(1000);
 
     cy.url({ timeout: 20000 }).should("include", "/students");
   });

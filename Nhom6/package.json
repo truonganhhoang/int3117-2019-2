@@ -1,0 +1,17 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "Practise Cypress Testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/cypress run --spec 'cypress/integration/test_create_group.js'",
+    "start": "./node_modules/.bin/cypress open",
+    "cypress:open": "cypress open",
+    "cy:run": "cypress run"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^3.4.1"
+  }
+}

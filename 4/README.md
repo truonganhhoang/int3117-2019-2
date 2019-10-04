@@ -12,5 +12,5 @@
   - Để Cypress chạy được với https, cần sửa file cypress.json như sau:
   { "chromeWebSecurity": false }
   
-  -Nếu chạy bị lỗi exception thì thêm vào file cypress/support/index.js dòng sau:
+  - Nếu chạy bị lỗi exception thì thêm vào file cypress/support/index.js dòng sau:
    Cypress.on('uncaught:exception', (err, runnable) => { return false })

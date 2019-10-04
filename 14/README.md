@@ -36,4 +36,4 @@ chuỗi có độ dài 0 -> không hợp lệ<br/>
 5. tìm file test rồi click vào<br/>
 hoặc nếu bạn có sẵn folder chứa cypress thì chỉ cần ném file test vào thư mục integration rồi mở cypress để chạy file test<br/>
 <h4>Kết Quả </h4>
-<img src="\testcase.png"/>
+<img src="/14/testcase.png"/>

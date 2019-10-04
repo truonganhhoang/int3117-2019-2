@@ -17,6 +17,7 @@
   
   - Nếu chạy bị lỗi exception thì thêm vào file cypress/support/index.js dòng sau:
    Cypress.on('uncaught:exception', (err, runnable) => { return false })
+### Chạy test
   - Vào cmd chuyển đến thư mục gốc cài cypress
   - Gõ lệnh npx cypress open,màn hình cypress hiện ra 
   - Chọn file test.spec.js xem kết quả các ca test.

@@ -1,13 +1,13 @@
+import {account, startUrl, studentUrl} from './credential';
+const { email, password} = account;
 describe("Invite students to class", function () {
     it("login & go to invite modal", () => {
-        cy.visit("https://hoclieu.sachmem.vn");
+        cy.visit(startUrl);
         cy.get("#link-login").click();
-        cy.get('input[name="user[email]"]').type("giaovien1@sachmem.vn");
-        cy.get('input[name="user[password]"]').type("giaovien1@123");
+        cy.get('input[name="user[email]"]').type(email);
+        cy.get('input[name="user[password]"]').type(password);
         cy.get('input[type="submit"]').click();
-        cy.visit(
-            "https://hoclieu.sachmem.vn/live_class/class/5d95fe2bec4e443482b3b97b/students"
-        );
+        cy.visit(studentUrl);
         cy.contains("Chức năng").click();
         cy.get('a[data-target="#inviteModal"]').click();
     });

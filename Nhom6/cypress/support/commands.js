@@ -26,14 +26,46 @@
 
 Cypress.Commands.add("login", () => {
   cy.visit("/");
+
   cy.get("#link-login").click();
+
   cy.url().should("eq", "https://accounts.sachmem.vn/users/sign_in");
+
   cy.get("#user_email")
     .type(Cypress.env("email"))
     .should("have.value", Cypress.env("email"));
+
   cy.get("#user_password")
     .type(Cypress.env("password"))
     .should("have.value", Cypress.env("password"));
+
   cy.get("#new_user").submit();
+
   cy.wait(1000);
 });
+
+
+Cypress.Commands.add("deleteGroups", function () {
+  cy.wait(1000);
+
+  cy.visit("/live_class/class/5d932e66202f2f613cdd987b/list_groups/", {
+    retryOnStatusCodeFailure: true,
+    timeout: 10000
+  });
+
+  cy.wait(3000)
+
+  cy.get("app-list-group").then($group => {
+    if ($group.find("table").length) {
+      cy.get("td>i.fa-trash").each(element => {
+        element.click();
+      });
+
+      cy.wait(500);
+
+      cy.get("button.btn.bootbox-accept").each(element => {
+        element.click();
+      });
+    }
+  });
+})

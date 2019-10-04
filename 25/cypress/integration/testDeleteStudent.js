@@ -7,6 +7,7 @@ describe("Test delete student", function () {
         cy.get('input[type="submit"]').click();
     });
     afterEach(function () {
+	cy.wait(1000)
 	cy.get('[class="ng-input"]').eq(1).click()
 	cy.wait(500)
 	cy.contains('Đã xóa').parent().click()
@@ -57,7 +58,7 @@ describe("Test delete student", function () {
 			cy.get('[data-target="#deleteStudent"]').eq(0).click()
 			cy.wait(500)
 			cy.get('[class="btn btn-primary bootbox-accept"]').click()
-			cy.wait(500)
+			cy.wait(1000)
 		}
 	});
     });

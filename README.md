@@ -2,7 +2,7 @@ Môn kiểm thử học kỳ 1 năm học 2019-2020
 
 Bài tập tuần 5: Học cypress và áp dụng kiểm thử tự động một chức năng của hoclieu.vn theo nhóm
 
-- Kiểm thử tự động chức năng 4.5.3 Xóa nhóm 
+- Kiểm thử tự động chức năng 4.5.3: Xóa nhóm 
 
 
 ## Kết quả đạt được: 

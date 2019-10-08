@@ -2,22 +2,19 @@
 
 describe('Common TC_F_01', function () {
 
-    before('Đăng nhập vào học liệu', function () {
-        cy.visit('https://hoclieu.sachmem.vn')
-
-            .contains('Đăng nhập').click()
-
-            .get("input[name='user[email]']").clear().type("giaovien1@sachmem.vn")
-
-            .get("input[name='user[password]']").type("giaovien1@123").type("{enter}");
-
-        cy.url().should('include', 'https://hoclieu.sachmem.vn');
-        cy.wait(2000);
-
-        cy.contains('Lớp học của tôi').click();
+    beforeEach(() => {
+        cy.login();
     })
+    context('Window', function () {
+        it('CommonTC_F_01 hiện thông báo xác nhận xóa', function () {
+            cy.contains('Lớp học của tôi').click();
+            cy.url().should('include', 'https://hoclieu.sachmem.vn/live_class/classes');
+            cy.wait(2000);
+            cy.get('#dropdown').click();
 
-    it('CommonTC_F_01', function () {
-        
-    }) 
+            cy.contains("Xóa lớp học ").click();
+            cy.contains('Lớp 22').get('#optionDropdown').click({ force: true });
+        })
+    })
 })
+

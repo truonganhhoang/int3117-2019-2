@@ -16,7 +16,7 @@ describe('Test chức năng nhắn tin với giáo viên', function () {
     })
     context('Window', function () {
         it('Nhắn tin thành công', function () {
-            cy.contains("laiducminh1002@gmail.com").click();
+            //cy.contains("laiducminh1002@gmail.com").click();
             let message = "test cypress";
             cy.get('.send-message').type(message);
             cy.get('button').contains('Gửi').click();

@@ -8,7 +8,7 @@ describe('Test chức năng nhắn tin với giáo viên', function () {
         cy.login();
         cy.contains('Lớp học của tôi').click();
         cy.url().should('include', 'https://hoclieu.sachmem.vn/live_class/classes');
-        let cls = classes[1];
+        let cls = classes[0];
         cy.contains(cls).click({force:true});
         let cls_name = cy.get('ol.breadcrumb.box-shadow-hide-right').should('contain',cls);
         cy.contains("Nhắn tin, trao đổi").click().as('message');

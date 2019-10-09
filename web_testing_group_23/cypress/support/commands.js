@@ -37,7 +37,7 @@ const users = [
 Cypress.Commands.add('login', () => {
     cy.visit('https://hoclieu.sachmem.vn');
     cy.contains('Đăng nhập').click();
-    let user = users[1];
+    let user = users[0];
     cy.get('#user_email').type(user.email);
     cy.get('#user_password').type(user.password).type("{enter}");
 }) 

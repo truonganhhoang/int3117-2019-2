@@ -23,3 +23,21 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+const users = [
+    {
+        "email" : "laiducminh1002@gmail.com",
+        "password" : "Ineedyou~123"
+    },
+    {
+        "email" : "giaovien1@sachmem.vn",
+        "password" : "giaovien1@123"
+    }
+]
+Cypress.Commands.add('login', () => {
+    cy.visit('https://hoclieu.sachmem.vn');
+    cy.contains('Đăng nhập').click();
+    let user = users[1];
+    cy.get('#user_email').type(user.email);
+    cy.get('#user_password').type(user.password).type("{enter}");
+}) 

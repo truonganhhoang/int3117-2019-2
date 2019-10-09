@@ -7,5 +7,5 @@
 ## Cách chạy cypress test 
   ### Mở cmd dẫn đến thư mục cypress
   * Nhập npx cypress open hoặc npm run cypress:open
-  * Chọn thư mục cần test
+  * Chọn thư mục cần test: File: giao_bai_tap.spec.js
   

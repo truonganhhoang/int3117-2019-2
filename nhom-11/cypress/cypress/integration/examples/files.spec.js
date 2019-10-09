@@ -1,114 +1,67 @@
-/// <reference types="Cypress" />
-
-/// JSON fixture file can be loaded directly using
-// the built-in JavaScript bundler
-// @ts-ignore
-const requiredExample = require('../../fixtures/example')
-
-context('Files', () => {
-  beforeEach(() => {
-    cy.visit('https://example.cypress.io/commands/files')
-  })
-
-  beforeEach(() => {
-    // load example.json fixture file and store
-    // in the test context object
-    cy.fixture('example.json').as('example')
-  })
-
-  it('cy.fixture() - load a fixture', () => {
-    // https://on.cypress.io/fixture
-
-    // Instead of writing a response inline you can
-    // use a fixture file's content.
-
-    cy.server()
-    cy.fixture('example.json').as('comment')
-    // when application makes an Ajax request matching "GET comments/*"
-    // Cypress will intercept it and reply with object
-    // from the "comment" alias
-    cy.route('GET', 'comments/*', '@comment').as('getComment')
-
-    // we have code that gets a comment when
-    // the button is clicked in scripts.js
-    cy.get('.fixture-btn').click()
-
-    cy.wait('@getComment').its('responseBody')
-      .should('have.property', 'name')
-      .and('include', 'Using fixtures to represent data')
-
-    // you can also just write the fixture in the route
-    cy.route('GET', 'comments/*', 'fixture:example.json').as('getComment')
-
-    // we have code that gets a comment when
-    // the button is clicked in scripts.js
-    cy.get('.fixture-btn').click()
-
-    cy.wait('@getComment').its('responseBody')
-      .should('have.property', 'name')
-      .and('include', 'Using fixtures to represent data')
-
-    // or write fx to represent fixture
-    // by default it assumes it's .json
-    cy.route('GET', 'comments/*', 'fx:example').as('getComment')
-
-    // we have code that gets a comment when
-    // the button is clicked in scripts.js
-    cy.get('.fixture-btn').click()
-
-    cy.wait('@getComment').its('responseBody')
-      .should('have.property', 'name')
-      .and('include', 'Using fixtures to represent data')
-  })
-
-  it('cy.fixture() or require - load a fixture', function () {
-    // we are inside the "function () { ... }"
-    // callback and can use test context object "this"
-    // "this.example" was loaded in "beforeEach" function callback
-    expect(this.example, 'fixture in the test context')
-      .to.deep.equal(requiredExample)
-
-    // or use "cy.wrap" and "should('deep.equal', ...)" assertion
-    // @ts-ignore
-    cy.wrap(this.example, 'fixture vs require')
-      .should('deep.equal', requiredExample)
-  })
-
-  it('cy.readFile() - read a files contents', () => {
-    // https://on.cypress.io/readfile
-
-    // You can read a file and yield its contents
-    // The filePath is relative to your project's root.
-    cy.readFile('cypress.json').then((json) => {
-      expect(json).to.be.an('object')
+describe('Tạo bộ câu hỏi', function () {
+  context('Đăng nhập', function () {
+    beforeEach(function () {
+      cy.visit('https://hoclieu.sachmem.vn');
     })
-  })
 
-  it('cy.writeFile() - write to a file', () => {
-    // https://on.cypress.io/writefile
+    it('Test case đăng nhập thành công', function () {
+      cy.contains('Đăng nhập').click();
+      cy.get('#user_email').type('giaovien1@sachmem.vn'); // type email
+      cy.get('#user_password').type('giaovien1@123'); // type password
+      cy.get('#new_user > div:nth-child(6) > input').click();
 
-    // You can write to a file
+      cy.url().should('include', 'https://hoclieu.sachmem.vn');
+      cy.wait(2000);
+      cy.get('#userDropdown > span').should('contain', 'Viên'); // type user_name
 
-    // Use a response from a request to automatically
-    // generate a fixture file for use later
-    cy.request('https://jsonplaceholder.cypress.io/users')
-      .then((response) => {
-        cy.writeFile('cypress/fixtures/users.json', response.body)
+      //Click vào link Thư mục của tôi
+      cy.contains('Thư mục của tôi').click()
+
+      //Click nút Thêm
+      cy.contains('Thêm').click()
+
+      //Tạo bộ câu hỏi
+      //Nhập tên bộ câu hỏi
+      cy.get('#createFolderModal > div > div > form > div.modal-body > div:nth-child(1) > input').type('Toán 5');
+      //Chọn bộ câu hỏi
+      cy.get('form').find('[value="1"]').check();
+      //Nhấn tạo
+      cy.get('#createFolderModal > div > div > form > div.modal-footer > input').click();
+
+      cy.contains('Tạo câu hỏi').click();
+
+      questionList.forEach((question) => {
+        //Tạo tên bộ câu hỏi
+        cy.get('body > app-root > div.content-bound > div > div > div > teacher-manage-question > div:nth-child(2) > div.col-md-9.scroll > app-create-question > div.card > form > div.card-body > div > div > div:nth-child(1) > input')
+            .type(question.title)
+        cy.wait(6000)
+            .get(".cke_wysiwyg_frame").should(function ($iframe) {
+          const body = $iframe.contents().find("body").get(0)
+          expect(body).to.be.ok
+          cy.wrap(body).type(question.generalContent);
+        })
+
+        cy.wait(6000)
+            .get(".cke_wysiwyg_frame").should(function ($iframe) {
+          const body = $iframe.contents().find("body").get(0)
+          expect(body).to.be.ok
+          cy.wrap(body).type(question.mainContent);
+        })
       })
-    cy.fixture('users').should((users) => {
-      expect(users[0].name).to.exist
-    })
-
-    // JavaScript arrays and objects are stringified
-    // and formatted into text.
-    cy.writeFile('cypress/fixtures/profile.json', {
-      id: 8739,
-      name: 'Jane',
-      email: 'jane@example.com',
-    })
-
-    cy.fixture('profile').should((profile) => {
-      expect(profile.name).to.eq('Jane')
     })
   })
+
 })
+
+const questionList = [
+  { title: "Tổng hai số có ba chữ số", generalContent: "Thực hiện phép tính sau", mainContent: "453 + 234 = ?" },
+  { title: "Tổng hai số có ba chữ số", generalContent: "Thực hiện phép tính sau", mainContent: "212 + 904 = ?" },
+  { title: "Tổng hai số có ba chữ số", generalContent: "Thực hiện phép tính sau", mainContent: "343 + 234 = ?" },
+  { title: "Tổng hai số có ba chữ số", generalContent: "Thực hiện phép tính sau", mainContent: "123 + 344 = ?" },
+  { title: "Tổng hai số có ba chữ số", generalContent: "Thực hiện phép tính sau", mainContent: "675 + 204 = ?" },
+  { title: "Hiệu hai số có ba chữ số", generalContent: "Thực hiện phép tính sau", mainContent: "424 - 323 = ?" },
+  { title: "Hiệu hai số có ba chữ số", generalContent: "Thực hiện phép tính sau", mainContent: "675 - 238 = ?" },
+  { title: "Hiệu hai số có ba chữ số", generalContent: "Thực hiện phép tính sau", mainContent: "478 - 334 = ?" },
+  { title: "Hiệu hai số có ba chữ số", generalContent: "Thực hiện phép tính sau", mainContent: "900 - 834 = ?" },
+  { title: "Hiệu hai số có ba chữ số", generalContent: "Thực hiện phép tính sau", mainContent: "999 - 754 = ?" },
+]

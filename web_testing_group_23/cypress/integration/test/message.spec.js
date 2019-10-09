@@ -3,7 +3,7 @@ const classes = [
     "Lớp 22"
 ]
 describe('Test chức năng nhắn tin với giáo viên', function () {
-    // npm run cypress:open
+    // npm run cypress
     beforeEach(() => {
         cy.login();
         cy.contains('Lớp học của tôi').click();

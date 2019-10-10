@@ -7,7 +7,7 @@
 ## Cách chạy cypress test 
   ### Mở cmd dẫn đến thư mục cypress
   * Nhập npx cypress open hoặc npm run cypress:open
-  * Tìm đến địa chỉ: int3117-2019-2/nhom-11/cypress/cypress/integration/examples/
+  * Hoặc tìm đến địa chỉ: int3117-2019-2/nhom-11/cypress/cypress/integration/examples/
   * Chọn thư mục cần test: 
     * File: giao_bai_tap.spec.js - Chức năng giao bài tập (bị lỗi nên chuyển qua chức năng khác)
     * File: Tao_de_kiem_tra.spec.js - Chức năng tạo đề kiểm tra

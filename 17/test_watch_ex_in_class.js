@@ -1,32 +1,52 @@
-describe('Xem danh sách bài tập', function() {
+context('Kiểm thử chức năng xem câu hỏi trong 1 lớp học', () => {
+    Cypress.Commands.add('login', (email, password) => {
+        cy.request({
+            method: 'POST',
+            url: 'https://accounts.sachmem.vn/users/sign_in',
+            body: {
+                user: {
+                    email,
+                    password
+                }
+            }
+        })
+            .then((res) => {
+                window.localStorage.setItem('jwt', res.body.user.token)
+            })
+    })
 
-    it('đăng nhập', function(){
-      cy.visit('https://hoclieu.sachmem.vn');
-      cy.contains('Đăng nhập').click();
-      cy.get('#user_email').type('giaovien1@sachmem.vn'); // type email
-      cy.get('#user_password').type('giaovien1@123'); // type password
-      cy.get('#new_user > div:nth-child(6) > input').click();
+    beforeEach(() => { // Đăng nhập trước mỗi ca kiểm thử
+        cy.visit('https://hoclieu.sachmem.vn')
+        cy.contains('Đăng nhập').parent().click()
+        cy.visit('https://hoclieu.sachmem.vn');
+        cy.contains('Đăng nhập').click();
+        cy.get('#user_email').type('giaovien1@sachmem.vn')
+        cy.get('#user_password').type('giaovien1@123')
+        cy.get('[name="commit"]').click()
+
+        cy.url().should('include', 'https://hoclieu.sachmem.vn');
+        cy.wait(2000);
+
+        cy.get(':nth-child(1) > .w-100').should('contain', 'Lớp học của tôi')
+
     })
     
 
 
-    it('Xem danh sách bài tập trong 1 lớp', function(){
-      cy.url().should('include', 'https://hoclieu.sachmem.vn');
-      cy.get(':nth-child(1) > .w-100 > .text-dark').click(); // click vào "Lớp học của tôi"
-    
-      // xử lý ngoại lệ
-      // tham khảo "https://docs.cypress.io/api/events/catalog-of-events.html#Uncaught-Exceptions"
-      cy.on('uncaught:exception', (err, runnable) => {
-      
-      done();
-      return false;
-      
+    it('Xem danh sách câu hỏi trong lớp 1', function(){
+       cy.get(':nth-child(1) > .w-100 > .text-dark').click();
+       cy.get(':nth-child(2) > .row > .col-9 > .text-dark pl-1').click(); // click vào lớp thứ 1 trong danh sách
+       })
 
-      // nguyên nhân gây ra lỗi
-      // click vào lớp đầu tiên trong danh sách
-      cy.get(':nth-child(2) > .row > .col-9 > .text-dark pl-1').click();
-    })
-    })
+    it('Xem danh sách câu hỏi trong lớp 2', function(){
+       cy.get(':nth-child(1) > .w-100 > .text-dark').click(); // click vào "Lớp học của tôi"
+       cy.get(':nth-child(3) > .row > .col-9 > .text-dark pl-1').click(); // click vào lớp thứ 2 trong danh sách
+       })
+    
+    it('Xem danh sách câu hỏi trong lớp 3', function(){
+       cy.get(':nth-child(1) > .w-100 > .text-dark').click();
+       cy.get(':nth-child(4) > .row > .col-9 > .text-dark pl-1').click(); // click vào lớp thứ 3 trong danh sách
+       })
     
 
 })

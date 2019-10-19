@@ -1,0 +1,1 @@
+npx cypress run --browser chrome --spec "cypress/integration/test_exam_filter.js"

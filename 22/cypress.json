@@ -1,0 +1,4 @@
+{
+  "chromeWebSecurity": false,
+  "blacklistHosts": "pagead2.googlesyndication.com"
+}

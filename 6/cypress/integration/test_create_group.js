@@ -2,7 +2,7 @@ describe("Test create group", () => {
   beforeEach(() => {
 
     //Sign in as teacher
-    cy.fixture("teacher.json").then( teacher => {
+    cy.fixture("teacher.json").then(teacher => {
       cy.login(teacher.email, teacher.password);
     });
 
@@ -52,7 +52,7 @@ describe("Test create group", () => {
 
     //Submit creating group without name
     cy.get(
-      "#createGroup > div > div > form > div.modal-footer > input"
+      "#createGroup div.modal-footer>input"
     ).click();
 
     //Error message should appear
@@ -87,12 +87,12 @@ describe("Test create group", () => {
 
     //Type in group name
     cy.get(
-      "#createGroup > div > div > form > div.modal-body > div > input"
+      "#createGroup form div.modal-body input"
     ).type("Nhóm 666");
 
     //Submit creating group
     cy.get(
-      "#createGroup > div > div > form > div.modal-footer > input"
+      "#createGroup div.modal-footer>input"
     ).click();
 
     //Modal should disappear
@@ -121,18 +121,18 @@ describe("Test create group", () => {
 
     //Type in the existed name
     cy.get(
-      "#createGroup > div > div > form > div.modal-body > div > input"
+      "#createGroup form div.modal-body input"
     ).type("Nhóm 666");
 
     cy.get(
-      "#createGroup > div > div > form > div.modal-footer > input"
+      "#createGroup div.modal-footer>input"
     ).click();
 
     //Error message should appear
     cy.get("#toast-container").should("contain.text", "Nhóm đã trùng tên");
 
     cy.get(
-      '#createGroup > div > div > form > div.modal-footer > button:contains("Đóng")'
+      '#createGroup form div.modal-footer>button:contains("Đóng")'
     ).click();
 
     cy.get("#createGroup").should("be.hidden");
@@ -163,11 +163,11 @@ describe("Test create group", () => {
 
     //Type in a unique name
     cy.get(
-      "#createGroup > div > div > form > div.modal-body > div > input"
+      "#createGroup form div.modal-body input"
     ).type("Nhóm 666");
 
     cy.get(
-      "#createGroup > div > div > form > div.modal-footer > input"
+      "#createGroup div.modal-footer>input"
     ).click();
 
     //Success message should appear

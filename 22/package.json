@@ -1,0 +1,15 @@
+{
+  "name": "hoclieu",
+  "version": "1.0.0",
+  "description": "Môn kiểm thử học kỳ 1 năm học 2019-2020",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress": "cypress open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {}
+}

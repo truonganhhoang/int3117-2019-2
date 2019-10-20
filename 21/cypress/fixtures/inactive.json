@@ -1,0 +1,72 @@
+{
+  "code": 1,
+  "message": null,
+  "data": {
+    "parentNodes": [
+      {
+        "name": "Lớp học của tôi",
+        "type": "class"
+      }
+    ],
+    "childNodes": [
+      {
+        "_id": "5d9029f92d66d550626de980",
+        "name": "Quản lý các bộ mã làm bài tập",
+        "teacher_uid": "365136",
+        "active": 2,
+        "tags": [],
+        "domain_tags": [
+          "hoclieu.vn"
+        ],
+        "number_do": 0,
+        "custom_name": "",
+        "number_mark": 0
+      },
+      {
+        "_id": "5d90214c2d66d550626de90d",
+        "name": "Lop 1",
+        "teacher_uid": "365136",
+        "code": "tvygtgx",
+        "active_code": null,
+        "active": 0,
+        "description": "Testing",
+        "grade_id": "5c4936f314e1653ebeb2dd4e",
+        "tags": [],
+        "domain_tags": [
+          "hoclieu.vn"
+        ],
+        "department_education_training_id": "5d865e090ffd7f27c2c0bf43",
+        "division_id": "5d865e0b896f4f27cec49343",
+        "school_id": "5d865eee6fcc9427f38836a4",
+        "number_do": 0,
+        "custom_name": "",
+        "number_mark": 0
+      },
+      {
+        "_id": "5d9637c6ec4e443482b3ba90",
+        "name": "Lớp 2-A",
+        "teacher_uid": "365136",
+        "code": "odxexrc",
+        "active_code": 1,
+        "active": 0,
+        "description": "",
+        "grade_id": "5c4936f314e1653ebeb2dd4f",
+        "tags": [
+          "Văn",
+          "Toán"
+        ],
+        "domain_tags": [
+          "hoclieu.vn"
+        ],
+        "department_education_training_id": null,
+        "division_id": null,
+        "school_id": null,
+        "number_do": 0,
+        "custom_name": "",
+        "number_mark": 0
+      }
+    ],
+    "class_students": [],
+    "have_join_class": false
+  }
+}

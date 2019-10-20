@@ -1,0 +1,119 @@
+{
+  "code": 1,
+  "message": null,
+  "data":
+  {
+    "parentNodes":
+    [{
+      "name": "Lớp học của tôi",
+      "type": "class"
+    }],
+    "childNodes": [{
+      "_id": "5d9029f92d66d550626de980",
+      "name": "Quản lý các bộ mã làm bài tập",
+      "teacher_uid": "365136",
+      "active": 2,
+      "tags": [],
+      "domain_tags": ["hoclieu.vn"],
+      "number_do": 0,
+      "custom_name": "",
+      "number_mark": 0
+    }, {
+      "_id": "5d94baba2675db39fb93cb7e",
+      "name": "Lớp học test 1",
+      "teacher_uid": "365136",
+      "code": "hloqhtt",
+      "active": 1,
+      "description": "",
+      "grade_id": "5c4936f314e1653ebeb2dd5a",
+      "tags": ["Sinh"],
+      "domain_tags": ["hoclieu.vn"],
+      "department_education_training_id": null,
+      "division_id": null,
+      "school_id": null,
+      "number_do": 0,
+      "custom_name": "",
+      "number_mark": 1
+    }, {
+      "_id": "5d94bad72675db39fb93cb7f",
+      "name": "Lớp học test 2",
+      "teacher_uid": "365136",
+      "code": "bhajtst",
+      "active": 1,
+      "description": "",
+      "grade_id": "5c4936f314e1653ebeb2dd5a",
+      "tags": [],
+      "domain_tags": ["hoclieu.vn"],
+      "department_education_training_id": null,
+      "division_id": null,
+      "school_id": null,
+      "number_do": 0,
+      "custom_name": "",
+      "number_mark": 0
+    }, {
+      "_id": "5d95d56eec4e443482b3b835",
+      "name": "Test nhóm 13",
+      "teacher_uid": "365136",
+      "code": "xcglzpq",
+      "active": 1,
+      "description": "",
+      "grade_id": "5c4936f314e1653ebeb2dd4e",
+      "tags": [],
+      "domain_tags": ["hoclieu.vn"],
+      "department_education_training_id": null,
+      "division_id": null,
+      "school_id": null,
+      "number_do": 0,
+      "custom_name": "",
+      "number_mark": 0
+    }, {
+      "_id": "5d96cd54ec4e443482b3bc50",
+      "name": "Lớp của nhóm 18",
+      "teacher_uid": "365136",
+      "code": "vwshwhx",
+      "active": 1,
+      "description": "Dành cho tester",
+      "grade_id": "5c4936f314e1653ebeb2dd4e",
+      "tags": [],
+      "domain_tags": ["hoclieu.vn"],
+      "department_education_training_id": "5d865e090ffd7f27c2c0bf43",
+      "division_id": "5d865e0b896f4f27cec49343",
+      "school_id": "5d865f056fcc9427f38845aa",
+      "number_do": 0,
+      "custom_name": "",
+      "number_mark": 0
+    }, {
+      "_id": "5d96f5e6ec4e443482b3c207",
+      "name": "Lớp 15",
+      "teacher_uid": "365136",
+      "code": "ubpgbyv",
+      "active": 1,
+      "description": "",
+      "grade_id": "5c4936f314e1653ebeb2dd50",
+      "tags": ["Toán"],
+      "domain_tags": ["hoclieu.vn"],
+      "department_education_training_id": "5d865e090ffd7f27c2c0bf43",
+      "division_id": "5d865e0b896f4f27cec49343",
+      "school_id": "5d865f056fcc9427f38845ab",
+      "number_do": 0,
+      "custom_name": "",
+      "number_mark": 0
+    }, {
+      "_id": "5d9718eae3620d3005ded994",
+      "name": "Lớp nhóm 20",
+      "teacher_uid": "365136",
+      "code": "umlmhcp",
+      "active": 1,
+      "description": "",
+      "grade_id": "5c4936f314e1653ebeb2dd4e",
+      "tags": ["Toán"],
+      "domain_tags": ["hoclieu.vn"],
+      "department_education_training_id": "5d865e090ffd7f27c2c0bf43",
+      "division_id": "5d865e0b896f4f27cec49348",
+      "school_id": "5d865efd6fcc9427f3884070",
+      "number_do": 0,
+      "custom_name": "",
+      "number_mark": 0
+    }], "class_students": [], "have_join_class": false
+  }
+}

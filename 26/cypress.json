@@ -1,0 +1,5 @@
+{
+  "chromeWebSecurity": false,
+  "modifyObstructiveCode": false,
+  "baseUrl": "https://hoclieu.sachmem.vn/"
+}

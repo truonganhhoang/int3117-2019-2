@@ -1,0 +1,17 @@
+{
+  "name": "group26",
+  "version": "1.0.0",
+  "description": "manage set of questions",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/cypress open",
+    "cypress:open": "cypress open",
+    "cy:run": "cypress run",
+    "test": "./node_modules/.bin/cypress run --spec 'cypress/integration/manage_set_of_question_test.js'"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^3.4.1"
+  }
+}

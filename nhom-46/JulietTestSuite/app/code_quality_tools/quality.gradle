@@ -1,0 +1,34 @@
+apply from: '/code_quality_tools/quality.gradle'
+apply plugin: 'pmd'
+
+task pmd(type: Pmd) {
+    description 'Run PMD'
+    group 'verification'
+    ruleSetFiles = files("./code_quality_tools/pmd.xml")
+    source 'src'
+    include '*.java'
+    exclude '**/gen/**'
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+
+    ignoreFailures = false
+}
+apply plugin: 'findbugs'
+
+task findbugs(type: FindBugs) {
+    description 'Run findbugs'
+    group 'verification'
+    classes = files("$project.buildDir/intermediates/classes")
+    source 'src'
+    classpath = files()
+    effort 'max'
+    reportLevel = "high"
+    excludeFilter file('./code_quality_tools/findbugs-exclude.xml')
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+    ignoreFailures = false
+}

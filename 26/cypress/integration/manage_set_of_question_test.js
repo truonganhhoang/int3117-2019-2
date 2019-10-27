@@ -13,7 +13,7 @@ describe("Test manage set of questions", () => {
         cy  .wait(1000);
     });
 
-
+    // Test for abnormal case: name value is empty and radio button is checked
     it("test create set of questions: name field is empty", () => {
         cy  .createSetOfQuestions("", true);
 
@@ -21,7 +21,7 @@ describe("Test manage set of questions", () => {
             .should("be.visible")
     });
 
-
+    // Test for abnormal case: name value is space characters and radio button is checked
     it("test create set of questions: all characters are space in name field", () => {
         cy  .createSetOfQuestions("    ", true);
 
@@ -29,7 +29,7 @@ describe("Test manage set of questions", () => {
             .should("be.visible")
     });
 
-
+    // Test for abnormal case: name value contains special characters and radio button is checked
     it("test create set of questions: name field contains special characters", () => {
         cy  .createSetOfQuestions("special characters ^^", true);
 
@@ -37,7 +37,7 @@ describe("Test manage set of questions", () => {
             .should("be.visible")
     });
 
-
+    // Test for abnormal case: name value contains more than 50 characters and radio button is checked
     it("test create set of questions: name field contains more than 50 characters", () => {
         cy  .createSetOfQuestions("This sequence contains more than 50 characters hihi", true);
 
@@ -45,7 +45,7 @@ describe("Test manage set of questions", () => {
             .should("be.visible")
     });
 
-
+    // Test for normal case: name value just contains 50 characters and radio button is checked
     it("test create set of questions: name field just contains 50 characters", () => {
         cy  .createSetOfQuestions("This sequence just contains fifty characters ahihi", true);
 
@@ -53,7 +53,7 @@ describe("Test manage set of questions", () => {
             .should("be.visible")
     });
     
-
+    // Test for abnormal case: name field contains valid value and radio button is not checked
     it("test create set of questions: Uncheck radio button", () => {
         cy  .createSetOfQuestions("Valid value", false);
 

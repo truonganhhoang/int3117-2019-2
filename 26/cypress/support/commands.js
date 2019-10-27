@@ -24,6 +24,7 @@
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
+//Define "login" function
 Cypress.Commands.add("login", (email, password) => {
 	cy.visit("/");
 
@@ -46,7 +47,7 @@ Cypress.Commands.add("login", (email, password) => {
 	cy.wait(3000);
 });
 
-
+// Define "create a set of questions" function
 Cypress.Commands.add("createSetOfQuestions", (nameValue, radioButtonValue) => {
 	cy.contains("Thêm...")
 	.click();
